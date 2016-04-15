@@ -1,0 +1,87 @@
+get:
+  description: Get a list of all the Tickets at a location
+  operationId: getAllTickets
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+  responses:
+    '200':
+      description: Returns a list of Tickets
+      schema:
+        type: object
+        properties:
+          limit:
+            type: number
+          count:
+            type: number
+          _embedded:
+            type: object
+            properties:
+              tickets:
+                description: Ticket Resource Array
+                type: array
+                items:
+                  $ref: '../resources/ticket.yaml'
+
+post:
+  description: |
+    Opens a new ticket using the submitted data.
+
+    Creating a new ticket will generate empty lists for all of its list-based sub-resources,
+    including `payments` and `items`. This enables you to generate resources that belong ot the Location,
+    but are comprised of information that is not top level Ticket data.
+
+    A ticket must be created with references to an `employee`, an `order-type`, a `table`, and a `revenue_center`.
+    These are submitted as top level fields with `ids` as the values.
+  operationId: openTicket
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - name: body
+      in: body
+      required: true
+      schema:
+        type: object
+        required:
+          - employee
+          - order_type
+          - revenue_center
+        properties:
+          employee:
+            type: string
+            description: ID of an employee
+          order_type:
+            type: string
+            description: ID of an Order Type
+          revenue_center:
+            type: string
+            description: ID of a Revenue Center
+          table:
+            type: string
+            description: ID of a table. Defaults to `null`
+          guest_count:
+            type: number
+            description: Number of guests involved with the Ticket.
+            default: 1
+          name:
+            type: string
+            description: The name for the ticket to be displayed on the POS interface. Some POS system will ignore this. Defaults to `null`
+          auto_send:
+            type: boolean
+            description: When false, items aren't sent to the kitchen until ticket is paid in full.
+            default: true
+  responses:
+    '201':
+      description: Returns the new ticket object with an assigned id.
+      schema:
+        $ref: '../resources/ticket.yaml'
+    '400':
+      description: Invalid request
+      schema:
+        $ref: '../common/error.yaml'

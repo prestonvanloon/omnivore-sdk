@@ -86,6 +86,11 @@ paths:
   # /locations/{locationId}/employees/{employeeId}:
   #   $ref: 'paths/employee-id.yaml'
 
+  /locations/{locationId}/tickets:
+    $ref: 'paths/ticket.yaml'
+  /locations/{locationId}/tickets/{ticketId}:
+    $ref: 'paths/ticket-id.yaml'
+
 definitions:
   LocationResource:
     $ref: 'resources/location.yaml'

@@ -1,0 +1,57 @@
+get:
+  description: Gets a Ticket object
+  # operationId: getById
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - name: ticketId
+      in: path
+      required: true
+      type: string
+  responses:
+    '200':
+      description: Returns Ticket Resource
+      schema:
+          $ref: '../resources/ticket.yaml'
+    '400':
+      description: Invalid request
+      schema:
+        $ref: '../common/error.yaml'
+
+post:
+  description: |
+    Void a ticket
+
+    Voids every item on the ticket and closes the ticket. Only tickets that do
+    not have sent items can be voided.
+
+  operationId: voidById
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - name: ticketId
+      in: path
+      required: true
+      type: string
+    - name: body
+      in: body
+      required: true
+      schema:
+        type: object
+        required:
+          - void
+        properties:
+          void:
+            type: boolean
+            description: Set to true to void the ticket.
+  responses:
+    '200':
+      description: Returns the ticket with the void parameter set to true.
+      schema:
+        $ref: '../resources/ticket.yaml'
