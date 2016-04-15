@@ -1,0 +1,18 @@
+type: object
+description: Resource for a Employee inside of a specific Location.
+properties:
+  id:
+    type: string
+    description: The employee's id as stored in the POS system.
+  check_name:
+    type: string
+    description: The name of the employee as printed on a ticket.
+  first_name:
+    type: string
+    description: The employee's first name as stored in the POS.
+  last_name:
+    type: string
+    description: The employee's last name as stored in the POS.
+  login:
+    type: string
+    description: The employee's terminal login info.

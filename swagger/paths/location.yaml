@@ -1,0 +1,19 @@
+get:
+  description: Get a list of all your Locations
+  operationId: getAllLocations
+  security:
+    - apiKey: []
+  responses:
+    '200':
+      description: Location Resource Array
+      schema:
+        type: object
+        properties:
+          count:
+            type: number
+            description: The number of locations returned
+          _embedded:
+            description: Location Resource Array
+            type: array
+            items:
+              $ref: '../resources/location.yaml'

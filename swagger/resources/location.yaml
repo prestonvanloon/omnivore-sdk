@@ -1,0 +1,47 @@
+type: object
+description: A Location resource contains data about a restaurant location.
+properties:
+  id:
+    type: string
+    description: The location's id within our database
+  address:
+    type: object
+    properties:
+      city:
+        type: string
+      state:
+        type: string
+        description: 2 character code (e.g. "CA")
+      street1:
+        type: string
+      street2:
+        type: string
+      zip:
+        type: string
+  name:
+    type: string
+    description: The name of the location
+  phone:
+    type: string
+    description: 10 digits, no punctuation
+  website:
+    type: string
+  _links:
+    type: object
+    properties:
+      employees:
+        $ref: '../common/link.yaml'
+      menu:
+        $ref: '../common/link.yaml'
+      order_types:
+        $ref: '../common/link.yaml'
+      revenue_centers:
+        $ref: '../common/link.yaml'
+      self:
+        $ref: '../common/link.yaml'
+      tables:
+        $ref: '../common/link.yaml'
+      tender_types:
+        $ref: '../common/link.yaml'
+      tickets:
+        $ref: '../common/link.yaml'

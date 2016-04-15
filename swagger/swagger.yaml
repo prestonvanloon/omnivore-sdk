@@ -1,0 +1,93 @@
+swagger: '2.0'
+info:
+  version: '0.1'
+  title: Omnivore API
+  description: |
+    Swagger documentation based on the [API reference docs](https://panel.omnivore.io/docs/api)
+
+    The Omnivore API is a RESTful API with Hypermedia principles via [HAL+JSON](http://stateless.co/hal_specification.html). The API contains **resources** that have both data for the requested object and links to traverse further into the API.
+
+    Using the example response to the right, data for a resource is contained at the top level of the object. Attributes such as a Location name, address, and website are examples of such data.
+
+    Resources can also contain other resources, known as **sub-resources**. For example, a list of Employees is a sub-resource of a Location. Sub-resources belong to their parent resource.
+
+    ## Metadata
+
+    All resources contain metadata about themselves and any sub-resources that they may own. Metadata can be found in all resources within the `_links` or `_embedded` fields.
+
+    A resource will always contain a `self` field inside of the `_links` hash:
+
+    ```javascript
+    "_links": {
+      "self": {
+        "href": "https://api.omnivore.io/0.1/locations/1237/"
+      }
+    }
+    ```
+
+    The `_links` hash can also contain fields describing sub-resources. These fields have URLs in `href` that can direct your client to the location of the sub-resource:
+    ```javascript
+    "_links": {
+      "employees": {
+        "href": "https://api.omnivore.io/0.1/locations/1237/employees/"
+      }
+    }
+    ```
+    The `_embedded` hash contains full resources or resource lists. All the data is “embedded” instead of linked to like in the `_links` field:
+
+    ```javascript
+    "_embedded": {
+      "employee": {
+        "check_name": "Cowans S",
+        "first_name": "Cowans",
+        "id": "9999999",
+        "last_name": "Super User"
+      }
+    }
+    ```
+
+    ## API Authentication
+
+    API Authentication
+
+    Authentication is done using API Keys that are assigned inside of the [control panel](http://panel.omnivore.io/) and are application specific. These keys can be created, deleted, or regenerated at any time.
+
+    API Keys are set as either Production or Development keys in the control panel. Production keys have access to Public Locations connected to the Application, while Development keys can only access Dev Locations.
+
+    An API Key is passed to the server using a custom HTTP header `Api-Key`. This works for both Production and Development keys.
+
+    ## Errors
+
+    Omnivore uses conventional HTTP error codes to communicate the result of an API request alongside a detailed error object.
+
+host: api.omnivore.io
+basePath: /0.1
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+
+securityDefinitions:
+  apiKey:
+    type: apiKey
+    in: header
+    name: Api-Key
+    description: Omnivore API key
+
+paths:
+  /locations:
+    $ref: 'paths/location.yaml'
+  /locations/{id}:
+    $ref: 'paths/location-id.yaml'
+  # /locations/{locationId}/employees:
+  #   $ref: 'paths/employee.yaml'
+  # /locations/{locationId}/employees/{employeeId}:
+  #   $ref: 'paths/employee-id.yaml'
+
+definitions:
+  LocationResource:
+    $ref: 'resources/location.yaml'
+  TicketResource:
+    $ref: 'resources/ticket.yaml'

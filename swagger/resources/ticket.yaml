@@ -1,0 +1,92 @@
+type: object
+description: |
+  Resource for restaurant tickets, also known as an order. Tickets are a sub-resource of Location.
+
+  Creating a Ticket is synonymouse with opening an order to be fulfilled by a restaurant.
+
+  Tickets a can be created, modified, replaced, and deleted.
+properties:
+  id:
+    type: string
+    description: The ticket's id as stored in the POS system
+  auto_send:
+    type: boolean
+    description: When false, items aren't sent to kitchen until ticket is paid in full.
+    default: true
+  closed_at:
+    type: string
+    description: Timestamp when the ticket was closed out. Null when 'open' is true.
+    format: datetime
+  guest_count:
+    type: number
+    description: Number of guests on the Ticket
+  name:
+    type: string
+    description: Alphanumeric indentifier for the Ticket. Note- unique amongst open Tickets.
+  open:
+    type: boolean
+    description: Whether or not the Ticket has a remaining balance
+  opened_at:
+    type: string
+    format: datetime
+    description: Timestamp when the ticket was opened
+  ticket_number:
+    type: number
+    description: The number printed on the ticket
+  totals:
+    type: object
+    properties:
+      sub_total:
+        type: number
+        description: Total cost of all Ticket Items.
+      other_charges:
+        type: number
+        description: Total miscellaneous charges
+      service_charges:
+        type: number
+        description: Other fees such as automatic gratuity or delivery fee.
+      total:
+        type: number
+        description: Total amount for the Ticket
+      due:
+        type: number
+        description: Remaining balance
+  _embedded:
+    type: object
+    properties:
+      employee:
+        description: Employee Resource
+        $ref: 'employee.yaml'
+      items:
+        description: Items Resource Array
+        type: array
+        items:
+          $ref: 'ticketItem.yaml'
+      discounts:
+        description: Ticket Discount Resource Array
+        type: array
+        items:
+          $ref: 'ticketDiscount.yaml'
+      order_type:
+        description: Order Type Resource
+        $ref: 'orderType.yaml'
+      payments:
+        description: Payment Resource Array
+        type: array
+        items:
+          $ref: 'payment.yaml'
+      revenue_centers:
+        description: Revenue Center Resource
+        $ref: 'revenueCenter.yaml'
+      table:
+        description: Table Resource
+        $ref: 'table.yaml'
+  _links:
+    type: object
+    properties:
+      items:
+        $ref: '../common/link.yaml'
+      discounts:
+        $ref: '../common/link.yaml'
+      payments:
+        $ref: '../common/link.yaml'
