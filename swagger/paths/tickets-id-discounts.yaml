@@ -1,0 +1,63 @@
+get:
+  description: Get a list of all the Ticket Discounts on a Ticket
+  operationId: tickets.getTicketDiscounts
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+  responses:
+    '200':
+      description: Ticket Discount Resource Array
+      schema:
+        type: object
+        properties:
+          count:
+            type: number
+            description: The number of ticketDiscounts returned
+          _embedded:
+            description: Ticket Discount Resource Array
+            type: array
+            items:
+              $ref: '../resources/ticketDiscount.yaml'
+
+post:
+  description: |
+    Applies a Discount to the Ticket.
+
+    Available Discounts for application can be retrieved via the Discount definition resource at locations/{location_id}/discounts.
+
+    Open discounts can be submitted with the desired value for the Discount.
+
+  operationId: tickets.applyTicketDiscount
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+    - name: payload
+      in: body
+      required: true
+      schema:
+        type: object
+        required:
+          - discount
+        properties:
+          discount:
+            type: string
+            description: A Discount ID
+          comment:
+            type: string
+            description: Comment to be applied alongside
+          value:
+            type: number
+            description: Value to be applied . For open discounts only
+  responses:
+    '200':
+      description: Returns the ticket with the new discount(s) added.
+      schema:
+        $ref: '../resources/ticket.yaml'

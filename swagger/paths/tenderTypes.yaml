@@ -1,0 +1,27 @@
+get:
+  description: Get a list of all the Tender Types at a location
+  operationId: tenderTypes.getAll
+  security:
+    - apiKey: []
+  tags:
+    - Tender Types
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+  responses:
+    '200':
+      description: Returns a list of Tender Types
+      schema:
+        type: object
+        properties:
+          limit:
+            type: number
+          count:
+            type: number
+          _embedded:
+            type: object
+            properties:
+              tickets:
+                description: Tender Type Resource Array
+                type: array
+                items:
+                  $ref: '../resources/tenderType.yaml'

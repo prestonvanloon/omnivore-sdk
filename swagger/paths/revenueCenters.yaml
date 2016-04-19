@@ -1,0 +1,27 @@
+get:
+  description: Get a list of all the Revenue Centers at a location
+  operationId: revenueCenters.getAll
+  security:
+    - apiKey: []
+  tags:
+    - Revenue Centers
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+  responses:
+    '200':
+      description: Returns a list of Revenue Centers
+      schema:
+        type: object
+        properties:
+          limit:
+            type: number
+          count:
+            type: number
+          _embedded:
+            type: object
+            properties:
+              tickets:
+                description: Revenue Center Resource Array
+                type: array
+                items:
+                  $ref: '../resources/revenueCenter.yaml'

@@ -1,8 +1,10 @@
 get:
   description: Get a list of all your Locations
-  operationId: getAllLocations
+  operationId: locations.getAll
   security:
     - apiKey: []
+  tags:
+    - Locations
   responses:
     '200':
       description: Location Resource Array

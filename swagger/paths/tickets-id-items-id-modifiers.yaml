@@ -1,0 +1,25 @@
+get:
+  description: Get a list of all the Ticket Item Modifiers on a Ticket
+  operationId: tickets.getTicketItemModifiers
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+    - $ref: '../common/ticketItemIdParam.yaml'
+  responses:
+    '200':
+      description: Ticket Item Modifier Resource Array
+      schema:
+        type: object
+        properties:
+          count:
+            type: number
+            description: The number of ticketItemModifiers returned
+          _embedded:
+            description: Ticket Item Modifier Resource Array
+            type: array
+            items:
+              $ref: '../resources/ticketItemModifier.yaml'

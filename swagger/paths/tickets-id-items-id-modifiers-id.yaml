@@ -1,0 +1,20 @@
+get:
+  description: Gets a Ticket Item Modifier object
+  operationId: tickets.getTicketItemModifierById
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+    - $ref: '../common/ticketItemIdParam.yaml'
+    - name: ticketItemModifierId
+      in: path
+      required: true
+      type: string
+  responses:
+    '200':
+      description: Returns Ticket Item Modifier Resource
+      schema:
+          $ref: '../resources/ticketItemModifier.yaml'

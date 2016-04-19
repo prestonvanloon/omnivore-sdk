@@ -1,0 +1,22 @@
+get:
+  description: Gets a Employee object
+  operationId: employees.getById
+  security:
+    - apiKey: []
+  tags:
+    - Employees
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - name: employeeId
+      in: path
+      required: true
+      type: string
+  responses:
+    '200':
+      description: Returns Employee Resource
+      schema:
+          $ref: '../resources/employee.yaml'
+    '400':
+      description: Invalid request
+      schema:
+        $ref: '../common/error.yaml'

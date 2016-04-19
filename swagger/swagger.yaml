@@ -78,18 +78,71 @@ securityDefinitions:
 
 paths:
   /locations:
-    $ref: 'paths/location.yaml'
+    $ref: 'paths/locations.yaml'
   /locations/{id}:
-    $ref: 'paths/location-id.yaml'
-  # /locations/{locationId}/employees:
-  #   $ref: 'paths/employee.yaml'
-  # /locations/{locationId}/employees/{employeeId}:
-  #   $ref: 'paths/employee-id.yaml'
+    $ref: 'paths/locations-id.yaml'
+  /locations/{locationId}/employees:
+    $ref: 'paths/employees.yaml'
+  /locations/{locationId}/employees/{employeeId}:
+    $ref: 'paths/employees-id.yaml'
+  /locations/{locationId}/order_types:
+    $ref: 'paths/orderTypes.yaml'
+  /locations/{locationId}/order_types/{orderTypeId}:
+    $ref: 'paths/orderTypes-id.yaml'
+  /locations/{locationId}/tables:
+    $ref: 'paths/tables.yaml'
+  /locations/{locationId}/tables/{tableId}:
+    $ref: 'paths/tables-id.yaml'
+  /locations/{locationId}/tender_types:
+    $ref: 'paths/tenderTypes.yaml'
+  /locations/{locationId}/tender_types/{tenderTypeId}:
+    $ref: 'paths/tenderTypes-id.yaml'
+  /locations/{locationId}/revenue_centers:
+    $ref: 'paths/revenueCenters.yaml'
+  /locations/{locationId}/revenue_centers/{revenueCenterId}:
+    $ref: 'paths/revenueCenters-id.yaml'
+  /locations/{locationId}/discounts:
+    $ref: 'paths/discounts.yaml'
+  /locations/{locationId}/discounts/{discountId}:
+    $ref: 'paths/discounts-id.yaml'
+
 
   /locations/{locationId}/tickets:
-    $ref: 'paths/ticket.yaml'
+    $ref: 'paths/tickets.yaml'
   /locations/{locationId}/tickets/{ticketId}:
-    $ref: 'paths/ticket-id.yaml'
+    $ref: 'paths/tickets-id.yaml'
+  /locations/{locationId}/tickets/{ticketId}/discounts/:
+    $ref: 'paths/tickets-id-discounts.yaml'
+  /locations/{locationId}/tickets/{ticketId}/discounts/{ticketDiscountId}/:
+    $ref: 'paths/tickets-id-discounts-id.yaml'
+  /locations/{locationId}/tickets/{ticketId}/items/:
+    $ref: 'paths/tickets-id-items.yaml'
+  /locations/{locationId}/tickets/{ticketId}/items/{ticketItemId}/:
+    $ref: 'paths/tickets-id-items-id.yaml'
+  /locations/{locationId}/tickets/{ticketId}/items/{ticketItemId}/modifiers:
+    $ref: 'paths/tickets-id-items-id-modifiers.yaml'
+  /locations/{locationId}/tickets/{ticketId}/items/{ticketItemId}/modifiers/{ticketItemModifierId}/:
+    $ref: 'paths/tickets-id-items-id-modifiers-id.yaml'
+  /locations/{locationId}/tickets/{ticketId}/items/{ticketItemId}/discounts:
+    $ref: 'paths/tickets-id-items-id-discounts.yaml'
+  /locations/{locationId}/tickets/{ticketId}/items/{ticketItemId}/discounts/{ticketItemDiscountId}/:
+    $ref: 'paths/tickets-id-items-id-discounts-id.yaml'
+  /locations/{locationId}/tickets/{ticketId}/payments/:
+    $ref: 'paths/tickets-id-payments.yaml'
+  /locations/{locationId}/tickets/{ticketId}/payments/{paymentId}:
+    $ref: 'paths/tickets-id-payments-id.yaml'
+
+  /locations/{locationId}/menu:
+    $ref: 'paths/menus.yaml'
+  /locations/{locationId}/menu/categories:
+    $ref: 'paths/menu-categories.yaml'
+  # /locations/{locationId}/menu/categories/{categoryId}:
+  # /locations/{locationId}/menu/items/:
+  # /locations/{locationId}/menu/items/{menuItemId}:
+  # /locations/{locationId}/menu/modifiers/:
+  # /locations/{locationId}/menu/modifiers/{modifierId}:
+  # /locations/{locationId}/menu/items/{menuItemId}/modifier_groups:
+  # /locations/{locationId}/menu/items/{menuItemId}/modifier_groups/{modifierGroupId}:
 
 definitions:
   LocationResource:

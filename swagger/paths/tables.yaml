@@ -1,0 +1,23 @@
+get:
+  description: Get a list of all your Tables at a Location
+  operationId: tables.getAll
+  security:
+    - apiKey: []
+  tags:
+    - Tables
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+  responses:
+    '200':
+      description: Table Resource Array
+      schema:
+        type: object
+        properties:
+          count:
+            type: number
+            description: The number of tables returned
+          _embedded:
+            description: Table Resource Array
+            type: array
+            items:
+              $ref: '../resources/table.yaml'

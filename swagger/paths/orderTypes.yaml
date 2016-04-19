@@ -1,0 +1,27 @@
+get:
+  description: Get a list of all the Order Types at a location
+  operationId: orderTypes.getAll
+  security:
+    - apiKey: []
+  tags:
+    - Order Types
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+  responses:
+    '200':
+      description: Returns a list of Order Types
+      schema:
+        type: object
+        properties:
+          limit:
+            type: number
+          count:
+            type: number
+          _embedded:
+            type: object
+            properties:
+              tickets:
+                description: Order Type Resource Array
+                type: array
+                items:
+                  $ref: '../resources/orderType.yaml'

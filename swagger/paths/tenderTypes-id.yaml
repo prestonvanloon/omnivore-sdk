@@ -1,0 +1,22 @@
+get:
+  description: Gets a Tender Type object
+  operationId: orderTypes.getById
+  security:
+    - apiKey: []
+  tags:
+    - Tender Types
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - name: tenderTypeId
+      in: path
+      required: true
+      type: string
+  responses:
+    '200':
+      description: Returns Tender Type Resource
+      schema:
+          $ref: '../resources/tenderType.yaml'
+    '400':
+      description: Invalid request
+      schema:
+        $ref: '../common/error.yaml'

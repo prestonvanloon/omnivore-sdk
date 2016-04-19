@@ -1,0 +1,102 @@
+get:
+  description: Get a list of all the Ticket Items on a Ticket.
+  operationId: tickets.getTicketItems
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+  responses:
+    '200':
+      description: Ticket Item Resource Array
+      schema:
+        type: object
+        properties:
+          count:
+            type: number
+            description: The number of ticketItems returned
+          _embedded:
+            description: Ticket Item Resource Array
+            type: array
+            items:
+              $ref: '../resources/ticketItem.yaml'
+post:
+  description: |
+    Adds a new Ticket Item to a Ticket.
+
+    Ticket Items inherit values from their Menu Item parents. It is required to attach a Menu Item to a Ticket Item when adding to a Ticket.
+
+    Ticket Items can be submitted with modifiers to override their default Menu configurations. (Example - Extra Ketchup)
+
+    Ticket Items can also be submitted with discounts that will apply to the newly created item.
+
+    Several Ticket Items can be created at a time by passing multiple input objects together as an array. The example payload on the right shows this.
+
+  operationId: tickets.addTicketItem
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+    - name: payload
+      in: body
+      required: true
+      schema:
+        type: object
+        properties:
+          menu_item:
+            type: string
+            description: A Menu Item Id
+          quantity:
+            type: number
+            default: 1
+          price_level:
+            type: string
+            description: The price level of the menu item being added.
+          comment:
+            type: string
+            description: Any text, typically special instructions that aren't Available throught a modifiers
+          modifiers:
+            type: array
+            items:
+              type: object
+              required:
+                - modifier
+              properties:
+                modifier:
+                  type: string
+                  description: The modifier ID
+                quantity:
+                  type: number
+                  default: 1
+                price_level:
+                  type: string
+                  description: THe price level of the modifier.
+                comment:
+                  type: string
+                  description: Any text, typically special instructions that aren’t available through a modifier.
+          discounts:
+            type: array
+            items:
+              type: object
+              required:
+                - discount
+              properties:
+                discount:
+                  type: string
+                  description: A discount ID
+                comment:
+                  type: string
+                  description: Comment to be applied alongside the Discount
+                value:
+                  type: number
+                  description: Value to be applied. For open discounts only
+  responses:
+    '200':
+      description: Returns the ticket with the new discount(s) added.
+      schema:
+        $ref: '../resources/ticket.yaml'

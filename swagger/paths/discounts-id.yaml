@@ -1,0 +1,22 @@
+get:
+  description: Gets a Discount object
+  operationId: discounts.getById
+  security:
+    - apiKey: []
+  tags:
+    - Discounts
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - name: discountId
+      in: path
+      required: true
+      type: string
+  responses:
+    '200':
+      description: Returns Discount Resource
+      schema:
+          $ref: '../resources/discount.yaml'
+    '400':
+      description: Invalid request
+      schema:
+        $ref: '../common/error.yaml'

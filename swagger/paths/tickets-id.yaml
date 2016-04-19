@@ -1,16 +1,13 @@
 get:
   description: Gets a Ticket object
-  # operationId: getById
+  operationId: tickets.getById
   security:
     - apiKey: []
   tags:
     - Tickets
   parameters:
     - $ref: '../common/locationIdParam.yaml'
-    - name: ticketId
-      in: path
-      required: true
-      type: string
+    - $ref: '../common/ticketIdParam.yaml'
   responses:
     '200':
       description: Returns Ticket Resource

@@ -1,0 +1,20 @@
+get:
+  description: Get a list of all the Ticket Discounts on a Ticket
+  operationId: tickets.getTicketDiscount
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+    - name: ticketDiscountId
+      in: path
+      required: true
+      type: string
+
+  responses:
+    '200':
+      description: Ticket Discount Resource
+      schema:
+        $ref: '../resources/ticketDiscount.yaml'

@@ -1,0 +1,23 @@
+get:
+  description: Get a list of all the Employees at a location
+  operationId: employees.getAll
+  security:
+    - apiKey: []
+  tags:
+    - Employees
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+  responses:
+    '200':
+      description: Employee Resource Array
+      schema:
+        type: object
+        properties:
+          count:
+            type: number
+            description: The number of employees returned
+          _embedded:
+            description: Employee Resource Array
+            type: array
+            items:
+              $ref: '../resources/employee.yaml'

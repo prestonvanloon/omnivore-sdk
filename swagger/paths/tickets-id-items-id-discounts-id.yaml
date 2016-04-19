@@ -1,0 +1,20 @@
+get:
+  description: Gets a Ticket Item Discount object
+  operationId: tickets.getTicketItemDiscountById
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+    - $ref: '../common/ticketItemIdParam.yaml'
+    - name: ticketItemDiscountId
+      in: path
+      required: true
+      type: string
+  responses:
+    '200':
+      description: Returns Ticket Item Discount Resource
+      schema:
+          $ref: '../resources/ticketItemDiscount.yaml'

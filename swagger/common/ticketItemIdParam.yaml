@@ -1,0 +1,4 @@
+name: ticketItemId
+in: path
+required: true
+type: string

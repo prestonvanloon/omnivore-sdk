@@ -1,0 +1,22 @@
+get:
+  description: Gets a Revenue Center object
+  operationId: revenueCenters.getById
+  security:
+    - apiKey: []
+  tags:
+    - Revenue Centers
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - name: revenueCenterId
+      in: path
+      required: true
+      type: string
+  responses:
+    '200':
+      description: Returns Revenue Center Resource
+      schema:
+          $ref: '../resources/revenueCenter.yaml'
+    '400':
+      description: Invalid request
+      schema:
+        $ref: '../common/error.yaml'

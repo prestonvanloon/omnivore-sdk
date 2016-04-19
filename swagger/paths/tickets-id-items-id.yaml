@@ -1,0 +1,32 @@
+get:
+  description: Gets a Ticket Item object
+  operationId: tickets.getTicketItemById
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+    - $ref: '../common/ticketItemIdParam.yaml'
+  responses:
+    '200':
+      description: Returns Ticket Item Resource
+      schema:
+          $ref: '../resources/ticketItem.yaml'
+delete:
+  description: Voids a Ticket Item from a Ticket if the Item has not been sent to the kitchen.
+  operationId: tickets.voidItemItem
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+    - $ref: '../common/ticketItemIdParam.yaml'
+  responses:
+    '200':
+      description: Returns full ticket with voided items removed
+      schema:
+          $ref: '../resources/ticket.yaml'

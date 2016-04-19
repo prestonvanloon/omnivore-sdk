@@ -1,0 +1,5 @@
+name: ticketId
+in: path
+required: true
+type: string
+description: ID of the ticket

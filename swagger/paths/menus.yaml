@@ -1,0 +1,14 @@
+get:
+  description: Get a list of all your Menu at a Location
+  operationId: menus.get
+  security:
+    - apiKey: []
+  tags:
+    - Menus
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+  responses:
+    '200':
+      description: Menu Resource
+      schema:
+        $ref: '../resources/menu.yaml'
