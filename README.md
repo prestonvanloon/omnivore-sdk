@@ -6,13 +6,25 @@
 const Omnivore = require('omnivore-sdk');
 
 omnivore('my-omnivore-api-key').then(sdk => {
-  sdk.locations.getAll().then(locations => {
+  sdk.Locations.getAll().then(locations => {
     // Do something with locations!
     console.log(locations);
+
+    const locationId = location[0].id;
+    
+    sdk['Tender Types'].getAll({
+      locationId
+    }).then(tenderTypes => {
+      console.log(tenderTypes);
+    });
+
   }).catch(error => {
     // Handle errors
     console.error(error);
   });
+
+
+
 });
 
 ```
