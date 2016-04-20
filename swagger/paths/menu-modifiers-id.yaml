@@ -1,0 +1,18 @@
+get:
+  description: Gets a Modifier object
+  operationId: menu.getModifierById
+  security:
+    - apiKey: []
+  tags:
+    - Menus
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - name: modifierId
+      in: path
+      required: true
+      type: string
+  responses:
+    '200':
+      description: Returns Modifier Resource
+      schema:
+          $ref: '../resources/menuItem.yaml'

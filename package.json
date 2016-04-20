@@ -2,9 +2,9 @@
   "name": "omnivore-sdk",
   "version": "0.1.0",
   "description": "SDK for Omnivore.io using Swagger",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "prepublish": "gulp swagger"
   },
   "keywords": [
@@ -16,8 +16,13 @@
   "author": "Preston Van Loon <preston@machinepowered.com>",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^3.5.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
-    "gulp-swagger": "0.0.10"
+    "gulp-swagger": "0.0.10",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "swagger-client": "^2.1.13"
   }
 }

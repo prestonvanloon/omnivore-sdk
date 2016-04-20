@@ -1,0 +1,15 @@
+get:
+  description: Gets a Menu Item object
+  operationId: menu.getMenuItemById
+  security:
+    - apiKey: []
+  tags:
+    - Menus
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/menuItemIdParam.yaml'
+  responses:
+    '200':
+      description: Returns Menu Item Resource
+      schema:
+          $ref: '../resources/menuItem.yaml'

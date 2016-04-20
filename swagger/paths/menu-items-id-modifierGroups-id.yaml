@@ -1,0 +1,19 @@
+get:
+  description: Gets a list of all the Modifier Groups for a Menu Item
+  operationId: menu.getModifierGroupById
+  security:
+    - apiKey: []
+  tags:
+    - Menus
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/menuItemIdParam.yaml'
+    - name: modifierGroupId
+      in: path
+      required: true
+      type: string
+  responses:
+    '200':
+      description: Returns Modifier Group Resource
+      schema:
+        $ref: '../resources/modifierGroup.yaml'

@@ -1,0 +1,4 @@
+name: menuItemId
+in: path
+required: true
+type: string

@@ -1,0 +1,22 @@
+get:
+  description: Gets a Category object
+  operationId: categories.getById
+  security:
+    - apiKey: []
+  tags:
+    - Menus
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - name: categoryId
+      in: path
+      required: true
+      type: string
+  responses:
+    '200':
+      description: Returns Category Resource
+      schema:
+          $ref: '../resources/category.yaml'
+    '400':
+      description: Invalid request
+      schema:
+        $ref: '../common/error.yaml'
