@@ -136,13 +136,20 @@ paths:
     $ref: 'paths/menus.yaml'
   /locations/{locationId}/menu/categories:
     $ref: 'paths/menu-categories.yaml'
-  # /locations/{locationId}/menu/categories/{categoryId}:
-  # /locations/{locationId}/menu/items/:
-  # /locations/{locationId}/menu/items/{menuItemId}:
-  # /locations/{locationId}/menu/modifiers/:
-  # /locations/{locationId}/menu/modifiers/{modifierId}:
-  # /locations/{locationId}/menu/items/{menuItemId}/modifier_groups:
-  # /locations/{locationId}/menu/items/{menuItemId}/modifier_groups/{modifierGroupId}:
+  /locations/{locationId}/menu/categories/{categoryId}:
+    $ref: 'paths/menu-categories-id.yaml'
+  /locations/{locationId}/menu/items/:
+    $ref: 'paths/menu-items.yaml'
+  /locations/{locationId}/menu/items/{menuItemId}:
+    $ref: 'paths/menu-items-id.yaml'
+  /locations/{locationId}/menu/modifiers/:
+    $ref: 'paths/menu-modifiers.yaml'
+  /locations/{locationId}/menu/modifiers/{modifierId}:
+    $ref: 'paths/menu-modifiers-id.yaml'
+  /locations/{locationId}/menu/items/{menuItemId}/modifier_groups:
+    $ref: 'paths/menu-items-id-modifierGroups.yaml'
+  /locations/{locationId}/menu/items/{menuItemId}/modifier_groups/{modifierGroupId}:
+    $ref: 'paths/menu-items-id-modifierGroups-id.yaml'
 
 definitions:
   LocationResource:
