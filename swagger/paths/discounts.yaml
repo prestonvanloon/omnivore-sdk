@@ -1,6 +1,6 @@
 get:
   description: Get a list of all the Discounts at a location
-  operationId: discounts.getAll
+  operationId: getAll
   security:
     - apiKey: []
   tags:

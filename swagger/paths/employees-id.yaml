@@ -1,6 +1,6 @@
 get:
   description: Gets a Employee object
-  operationId: employees.getById
+  operationId: getById
   security:
     - apiKey: []
   tags:

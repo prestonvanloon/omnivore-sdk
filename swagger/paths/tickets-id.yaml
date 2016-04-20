@@ -1,6 +1,6 @@
 get:
   description: Gets a Ticket object
-  operationId: tickets.getById
+  operationId: getById
   security:
     - apiKey: []
   tags:

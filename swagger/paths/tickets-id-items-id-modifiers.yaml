@@ -1,6 +1,6 @@
 get:
   description: Get a list of all the Ticket Item Modifiers on a Ticket
-  operationId: tickets.getTicketItemModifiers
+  operationId: getTicketItemModifiers
   security:
     - apiKey: []
   tags:

@@ -1,6 +1,6 @@
 get:
   description: Gets a Category object
-  operationId: categories.getById
+  operationId: getCategoryById
   security:
     - apiKey: []
   tags:

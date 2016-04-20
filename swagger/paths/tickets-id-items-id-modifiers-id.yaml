@@ -1,6 +1,6 @@
 get:
   description: Gets a Ticket Item Modifier object
-  operationId: tickets.getTicketItemModifierById
+  operationId: getTicketItemModifierById
   security:
     - apiKey: []
   tags:

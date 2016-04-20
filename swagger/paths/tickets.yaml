@@ -1,6 +1,6 @@
 get:
   description: Get a list of all the Tickets at a location
-  operationId: tickets.getAll
+  operationId: getAll
   security:
     - apiKey: []
   tags:

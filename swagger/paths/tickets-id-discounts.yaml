@@ -1,6 +1,6 @@
 get:
   description: Get a list of all the Ticket Discounts on a Ticket
-  operationId: tickets.getTicketDiscounts
+  operationId: getTicketDiscounts
   security:
     - apiKey: []
   tags:
@@ -31,7 +31,7 @@ post:
 
     Open discounts can be submitted with the desired value for the Discount.
 
-  operationId: tickets.applyTicketDiscount
+  operationId: applyTicketDiscount
   security:
     - apiKey: []
   tags:

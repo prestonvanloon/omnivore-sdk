@@ -1,6 +1,6 @@
 get:
   description: Get a list of all the Ticket Items on a Ticket.
-  operationId: tickets.getTicketItems
+  operationId: getTicketItems
   security:
     - apiKey: []
   tags:
@@ -34,7 +34,7 @@ post:
 
     Several Ticket Items can be created at a time by passing multiple input objects together as an array. The example payload on the right shows this.
 
-  operationId: tickets.addTicketItem
+  operationId: addTicketItem
   security:
     - apiKey: []
   tags:

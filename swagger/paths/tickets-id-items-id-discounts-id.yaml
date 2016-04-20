@@ -1,6 +1,6 @@
 get:
   description: Gets a Ticket Item Discount object
-  operationId: tickets.getTicketItemDiscountById
+  operationId: getTicketItemDiscountById
   security:
     - apiKey: []
   tags:

@@ -1,6 +1,6 @@
 get:
   description: Get a list of all the Ticket Item Discounts on a Ticket
-  operationId: tickets.getTicketItemDiscounts
+  operationId: getTicketItemDiscounts
   security:
     - apiKey: []
   tags:

@@ -1,6 +1,6 @@
 get:
   description: Get the data for a Location that is currently attached to your account.
-  operationId: locations.getById
+  operationId: getById
   security:
     - apiKey: []
   tags:

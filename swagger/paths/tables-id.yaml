@@ -1,6 +1,6 @@
 get:
   description: Gets a Table object
-  operationId: tables.getById
+  operationId: getById
   security:
     - apiKey: []
   tags:

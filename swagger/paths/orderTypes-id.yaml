@@ -1,6 +1,6 @@
 get:
   description: Gets a Order Type object
-  operationId: orderTypes.getById
+  operationId: getById
   security:
     - apiKey: []
   tags:

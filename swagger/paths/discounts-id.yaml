@@ -1,6 +1,6 @@
 get:
   description: Gets a Discount object
-  operationId: discounts.getById
+  operationId: getById
   security:
     - apiKey: []
   tags:

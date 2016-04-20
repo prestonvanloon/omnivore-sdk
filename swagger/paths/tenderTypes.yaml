@@ -1,6 +1,6 @@
 get:
   description: Get a list of all the Tender Types at a location
-  operationId: tenderTypes.getAll
+  operationId: getAll
   security:
     - apiKey: []
   tags:

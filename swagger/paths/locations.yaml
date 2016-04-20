@@ -1,6 +1,6 @@
 get:
   description: Get a list of all your Locations
-  operationId: locations.getAll
+  operationId: getAll
   security:
     - apiKey: []
   tags:

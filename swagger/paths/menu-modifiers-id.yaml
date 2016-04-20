@@ -1,6 +1,6 @@
 get:
   description: Gets a Modifier object
-  operationId: menu.getModifierById
+  operationId: getModifierById
   security:
     - apiKey: []
   tags:

@@ -1,6 +1,6 @@
 get:
   description: Get a list of all the Order Types at a location
-  operationId: orderTypes.getAll
+  operationId: getAll
   security:
     - apiKey: []
   tags:

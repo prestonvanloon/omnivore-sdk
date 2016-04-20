@@ -1,6 +1,6 @@
 get:
   description: Gets a Tender Type object
-  operationId: tenderTypes.getById
+  operationId: getById
   security:
     - apiKey: []
   tags:

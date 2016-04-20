@@ -1,6 +1,6 @@
 get:
   description: Get a list of all the Employees at a location
-  operationId: employees.getAll
+  operationId: getAll
   security:
     - apiKey: []
   tags:

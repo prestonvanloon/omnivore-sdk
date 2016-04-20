@@ -1,6 +1,6 @@
 get:
   description: Get a list of all your Tables at a Location
-  operationId: tables.getAll
+  operationId: getAll
   security:
     - apiKey: []
   tags:

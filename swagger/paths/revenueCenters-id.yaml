@@ -1,6 +1,6 @@
 get:
   description: Gets a Revenue Center object
-  operationId: revenueCenters.getById
+  operationId: getById
   security:
     - apiKey: []
   tags:

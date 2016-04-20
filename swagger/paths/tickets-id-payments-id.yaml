@@ -1,6 +1,6 @@
 get:
   description: Gets a Ticket Payment object
-  operationId: tickets.getTicketPaymentById
+  operationId: getTicketPaymentById
   security:
     - apiKey: []
   tags:

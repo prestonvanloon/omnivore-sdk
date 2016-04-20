@@ -1,6 +1,6 @@
 get:
   description: Get a list of all your Menu at a Location
-  operationId: menus.get
+  operationId: get
   security:
     - apiKey: []
   tags:

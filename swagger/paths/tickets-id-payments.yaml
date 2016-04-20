@@ -1,6 +1,6 @@
 get:
   description: Get a list of all the Ticket Payments on a Ticket
-  operationId: tickets.getPayments
+  operationId: getPayments
   security:
     - apiKey: []
   tags:

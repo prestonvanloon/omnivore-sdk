@@ -1,6 +1,6 @@
 get:
   description: Gets a Menu Item object
-  operationId: menu.getMenuItemById
+  operationId: getMenuItemById
   security:
     - apiKey: []
   tags:

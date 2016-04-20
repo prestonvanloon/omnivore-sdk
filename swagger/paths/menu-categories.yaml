@@ -1,6 +1,6 @@
 get:
   description: Gets a list of all the Categories in a Menu
-  operationId: menus.getCategories
+  operationId: getCategories
   security:
     - apiKey: []
   tags:
