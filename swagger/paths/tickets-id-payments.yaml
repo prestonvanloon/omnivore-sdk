@@ -22,3 +22,55 @@ get:
             type: array
             items:
               $ref: '../resources/ticketPayment.yaml'
+
+post:
+  description: Makes a payment using the specified tender type. Used most commonly for payments made through external sources.
+  operationId: addPayment
+  security:
+    - apiKey: []
+  tags:
+    - Tickets
+  parameters:
+    - $ref: '../common/locationIdParam.yaml'
+    - $ref: '../common/ticketIdParam.yaml'
+    - name: payment
+      in: body
+      required: true
+      schema:
+        type: object
+        required:
+          - type
+          - amount
+          - tip
+          - tender_type
+          - payment_source
+        properties:
+          type:
+            type: string
+            enum:
+              - 3rd_party
+              - cash
+              - gift_card
+              - card_present
+              - card_not_present
+          amount:
+            type: number
+            minimum: 0
+            format: int32
+            description: The amount, in cents, excluding tip, to be paid.
+          tip:
+            type: number
+            minimum: 0
+            format: int32
+            description: The amount, in cents, to be paid as tip.
+          tender_type:
+            type: string
+            description: Then tender type ID to use
+          payment_source:
+            type: string
+            description: A comment about the payment for record. (ex - external transaction id)
+  responses:
+    '200':
+      description: Returns a payment status object containing the ticket with the new balance.
+      schema:
+        type: object # TODO
