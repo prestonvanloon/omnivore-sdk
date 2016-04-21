@@ -6,7 +6,7 @@ module.exports = function(apiKey) {
     spec: require('./dist/swagger.json'),
     usePromise: true,
     authorizations: {
-      apiKey: new Swagger.ApiKeyAuthorization('apiKey', apiKey, 'header')
+      apiKey: new Swagger.ApiKeyAuthorization('Api-Key', apiKey, 'header')
     }
   });
 
