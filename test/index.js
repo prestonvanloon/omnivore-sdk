@@ -13,6 +13,7 @@ describe('library', function () {
 
     it('should be an sdk', function () {
       expect(omnivore).to.be.ok;
+      expect(omnivore.apis).to.be.an.Object;
     });
 
   });

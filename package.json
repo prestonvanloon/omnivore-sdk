@@ -1,6 +1,6 @@
 {
   "name": "omnivore-sdk",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "SDK for Omnivore.io using Swagger",
   "main": "dist/index.js",
   "scripts": {
@@ -23,7 +23,6 @@
     "mocha": "^2.4.5"
   },
   "dependencies": {
-    "asyncawait": "^1.0.3",
-    "swagger-client": "^2.1.13"
+    "swagger-client": "git@github.com:briananderson1222/swagger-js.git#39b195a326009f1943f2d1140f9ed1602e34ee8b"
   }
 }

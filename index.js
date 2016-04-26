@@ -1,8 +1,7 @@
 var Swagger = require('swagger-client');
-var async = require('asyncawait/async');
-var await = require('asyncawait/await');
 
-var swagger = async (function(apiKey) {
+var swagger = function(apiKey) {
+
   var client = new Swagger({
     spec: require('./dist/swagger.json'),
     usePromise: true,
@@ -11,17 +10,8 @@ var swagger = async (function(apiKey) {
     }
   });
 
-  client.catch(function(error) {
-    if (typeof error === 'string') {
-      error = new Error(error);
-    }
-
-    throw error;
-  });
-
-  return await (client);
-});
-
+  return client.valueOf();
+};
 
 module.exports = function(apiKey) {
   return swagger(apiKey);
