@@ -1,7 +1,6 @@
 var Swagger = require('swagger-client');
 
 var swagger = function(apiKey) {
-
   var client = new Swagger({
     spec: require('./dist/swagger.json'),
     usePromise: true,
