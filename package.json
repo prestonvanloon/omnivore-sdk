@@ -23,6 +23,6 @@
     "mocha": "^2.4.5"
   },
   "dependencies": {
-    "swagger-client": "git@github.com:briananderson1222/swagger-js.git#39b195a326009f1943f2d1140f9ed1602e34ee8b"
+    "swagger-client": "https://github.com:briananderson1222/swagger-js.git#39b195a326009f1943f2d1140f9ed1602e34ee8b"
   }
 }
