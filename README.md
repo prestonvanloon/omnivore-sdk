@@ -4,27 +4,23 @@
 
 ```javascript
 const Omnivore = require('omnivore-sdk');
+const omnivore = new Omnivore('my-omnivore-api-key');
 
-omnivore('my-omnivore-api-key').then(sdk => {
-  sdk.Locations.getAll().then(locations => {
-    // Do something with locations!
-    console.log(locations);
+omnivore.Locations.getAll().then(locations => {
+  // Do something with locations!
+  console.log(locations);
 
-    const locationId = location[0].id;
+  const locationId = location[0].id;
 
-    sdk['Tender Types'].getAll({
-      locationId
-    }).then(tenderTypes => {
-      console.log(tenderTypes);
-    });
-
-  }).catch(error => {
-    // Handle errors
-    console.error(error);
+  omnivore['Tender Types'].getAll({
+    locationId
+  }).then(tenderTypes => {
+    console.log(tenderTypes);
   });
 
-
-
+}).catch(error => {
+  // Handle errors
+  console.error(error);
 });
 
 ```
